@@ -1,4 +1,4 @@
-
+import numpy as np
 
 data = [[3.1, 2.5, 180, 63],
         [3.4, 2.5, 180, 64],
@@ -21,3 +21,20 @@ data = [[3.1, 2.5, 180, 63],
         [2.9, 3.0, 200, 65],
         [2.8, 3.0, 200, 63],
         ]
+
+data = np.array(data)
+
+print(data)
+
+Y = np.matrix(data[:, 0])
+print(Y)
+print(Y.T)
+X = np.matrix(data[:, 1:4])
+print(X)
+
+B = ((X.T*X)**-1)*X.T*Y.T
+print(B)
+
+print(Y)
+# print(Y[0][5])
+print(B[0] * data[5][0] + B[1] * data[5][1] + B[2] * data[5][2])
